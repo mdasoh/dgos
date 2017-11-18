@@ -1,5 +1,12 @@
 #pragma once
 
+// Interrupt map:
+//   0-1F: CPU exceptions
+//  20-2F: 8259 IRQs
+//  30-FB: Dynamically allocated IOAPIC and MSI interrupts
+//  FC-FE: Software interrupts
+//     FF: Spurious APIC interrupt
+
 #define INTR_EX_DIV         0
 #define INTR_EX_DEBUG       1
 #define INTR_EX_NMI         2
@@ -21,14 +28,13 @@
 #define INTR_EX_SIMD        19
 #define INTR_EX_VIRTUALIZE  20
 
-#define INTR_THREAD_YIELD   72
-#define INTR_APIC_TIMER     73
-#define INTR_TLB_SHOOTDOWN  74
-
 // IOAPIC interrupt vectors are allocated
 // starting at 0x80. Variable count depending upon
 // the number of IOAPICs and their redirection
 // table size
 #define INTR_APIC_IRQ_BASE  0x80
 
+#define INTR_APIC_TIMER     0xFC
+#define INTR_TLB_SHOOTDOWN  0xFD
+#define INTR_THREAD_YIELD   0xFE
 #define INTR_APIC_SPURIOUS  0xFF

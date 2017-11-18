@@ -365,8 +365,10 @@ kernel_elf_SOURCES = \
 	kernel/arch/x86_64/cpu/except_asm.s \
 	kernel/arch/x86_64/cpu/syscall.S \
 	kernel/main.cc \
-	kernel/lib/assert.cc \
 	kernel/lib/assert.h \
+	kernel/lib/assert.cc \
+	kernel/lib/bit_alloc.h \
+	kernel/lib/bit_alloc.cc \
 	kernel/lib/bitop.h \
 	kernel/lib/bitsearch.cc \
 	kernel/lib/bitsearch.h \
@@ -500,6 +502,12 @@ kernel_elf_SOURCES = \
 	kernel/arch/x86_64/bootdev.h \
 	kernel/arch/x86_64/cpu/apic.cc \
 	kernel/arch/x86_64/cpu/apic.h \
+	kernel/arch/x86_64/cpu/apic_local.cc \
+	kernel/arch/x86_64/cpu/apic_local.h \
+	kernel/arch/x86_64/cpu/apic_io.cc \
+	kernel/arch/x86_64/cpu/apic_io.h \
+	kernel/arch/x86_64/cpu/mp_tables.cc \
+	kernel/arch/x86_64/cpu/mp_tables.h \
 	kernel/arch/x86_64/cpu/asm_constants.h \
 	kernel/arch/x86_64/cpu/atomic.cc \
 	kernel/arch/x86_64/cpu/atomic.h \
@@ -986,7 +994,7 @@ QEMU_COMMON = \
 	$(QEMU_SERIAL) \
 	$(QEMU_DEBUGCON) \
 	$(QEMU_NET) \
-	-no-shutdown -no-reboot -d unimp,guest_errors \
+	-no-shutdown -no-reboot -d unimp,guest_errors,mmu \
 	-m $(QEMU_RAM) \
 	$(QEMU_FLAGS)
 

@@ -1,4 +1,13 @@
+arch/x86_64/cpu/acpi_tables.h
+arch/x86_64/cpu/apic_io.cc
+arch/x86_64/cpu/apic_io.h
+arch/x86_64/cpu/apic_local.cc
+arch/x86_64/cpu/apic_local.h
 arch/x86_64/cpu/asm_constants.h
+arch/x86_64/cpu/mp_tables.cc
+arch/x86_64/cpu/mp_tables.h
+lib/bit_alloc.cc
+lib/bit_alloc.h
 syscall/syscall_helper.h
 syscall/syscall_helper.cc
 ../AUTHORS
